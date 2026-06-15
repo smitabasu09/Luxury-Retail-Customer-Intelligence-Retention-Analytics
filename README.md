@@ -6,6 +6,14 @@ This project analyzes luxury retail customer and sales data using SQL and Power 
 
 The objective was to transform raw retail transaction data into actionable business insights through SQL analysis and interactive Power BI dashboards.
 
+## Dashboard Preview
+
+### Executive Summary Dashboard
+![Executive Summary](images/executive_summary.png)
+
+### Product & Profitability Dashboard  
+![Product and Profitability](images/product_profitability.png)
+
 ## Tools Used
 
 * SQL (MySQL)
