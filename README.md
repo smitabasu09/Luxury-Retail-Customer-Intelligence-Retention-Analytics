@@ -14,6 +14,22 @@ The objective was to transform raw retail transaction data into actionable busin
 ### Product & Profitability Dashboard  
 ![Product and Profitability](images/product_profitability.png)
 
+## Power BI Dashboards
+
+The `.pbit` template contains 2 executive dashboards that visualize insights from 7 comprehensive SQL analyses:
+
+### 1. Executive Summary Dashboard
+**Built from:** Sales Analysis + Customer Behavior + Retention Analysis
+- **KPIs:** $2.27M Total Revenue, 49.38K Orders, 282.9K Profit, 98.49% Retention Rate
+- **Views:** Revenue by year, category breakdown, monthly trends, cohort retention
+
+### 2. Product & Profitability Dashboard  
+**Built from:** Product & Performance + Customer Intelligence & Segmentation
+- **KPIs:** Top categories, margin analysis, customer segments
+- **Views:** Technology leads at 0.84M revenue, Furniture shows only 2.3% margin, RFM segments
+
+**Note:** All data cleaning, transformations, and advanced analytics were performed in SQL. Power BI connects to the final transformed tables for visualization.
+
 ## Tools Used
 
 * SQL (MySQL)
