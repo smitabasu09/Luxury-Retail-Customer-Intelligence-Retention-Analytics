@@ -20,13 +20,15 @@ The `.pbit` template contains 2 executive dashboards that visualize insights fro
 
 ### 1. Executive Summary Dashboard
 **Built from:** Sales Analysis + Customer Behavior + Retention Analysis
-- **KPIs:** $2.27M Total Revenue, 49.38K Orders, 282.9K Profit, 98.49% Retention Rate
-- **Views:** Revenue by year, category breakdown, monthly trends, cohort retention
+- **KPIs:** 2.27M Total Revenue, 282.9K Total Profit, 98.49 Retention Rate
+- **Views:** Revenue by category, monthly sales trend, region/year filters
+- **Key Insight:** Technology leads at ₹0.84M revenue, 98.49% retention rate maintained FY 2014-2017
 
-### 2. Product & Profitability Dashboard  
+### 2. Product & Profitability Analysis  
 **Built from:** Product & Performance + Customer Intelligence & Segmentation
-- **KPIs:** Top categories, margin analysis, customer segments
-- **Views:** Technology leads at 0.84M revenue, Furniture shows only 2.3% margin, RFM segments
+- **KPIs:** 781 Repeat Customers, 793 Total Customers, 234.42 Avg Order Value, 4,931 Total Orders
+- **Views:** Revenue contribution by sub-category, profit margin by category, loss-making products
+- **Key Insight:** Furniture delivered strong revenue but only 2.3% profit margin. Copiers and Phones generated highest profits.
 
 **Note:** All data cleaning, transformations, and advanced analytics were performed in SQL. Power BI connects to the final transformed tables for visualization.
 
