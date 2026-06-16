@@ -70,7 +70,7 @@ The Power BI solution contains two executive dashboards built from multiple SQL 
 * Bookcases and Supplies were identified as loss-making products.
 * 781 customers made repeat purchases.
 
-**Note:** Data cleaning, transformation, aggregation, and advanced analytics were performed using SQL before visualization in Power BI.
+**Note:** Data cleaning, transformation, sales analysis, customer behavior analysis, retention analysis, product performance analysis, and profitability analysis were performed in SQL. Power BI was used to build interactive dashboards and visualize the final insights.
 
 ## Tools Used
 
