@@ -80,23 +80,31 @@ extract(year from order_date_new) as Year,
 extract(Month from order_date_new) as Month, 
 sum(sales)as total_sales 
 from train 
-group by 1,2;
+group by 1,2
+order by total_sales desc;
+
+SELECT  
+extract(year from order_date_new) as Year,
+extract(Month from order_date_new) as Month, 
+sum(sales)as total_sales 
+from train 
+group by 1,2
+order by total_sales asc;
 
 
 
 -- 3.3 AVG ORDER VALUE
 
-SELECT  
-`order id` , 
-AVG(sales) AS avg_sales
-FROM train
-GROUP BY 1;
+select 
+  round(sum(sales)/count(distinct `order id`),2) as Avg_order_value
+from train;
 
+-- Result --> Average Order Value: $460.85
 
 /* INSIGHT :
 Sales peak mostly during Q4 (October–December), indicating strong festive or holiday season demand.
 
-Low Sales: January–March
+Low Sales: January–February
 High Sales: September–December
 
 RECOMMENDATION:
@@ -252,7 +260,6 @@ ORDER BY year;
 -- Result Summary:
 
 -- Peak: 2017 (highest activity)
--- Low months: multiple months with 0–1 customers
 -- Pattern: higher activity in year-end months
 
 
@@ -282,8 +289,8 @@ FROM train
 GROUP BY 1)t;
 
 -- Result:
--- Retained: 52.17%
--- Churned: 47.83%
+-- Retained: 99.24%
+-- Churned: 0.76%
 
 
 -- 6.3 LIFESPAN
@@ -296,23 +303,8 @@ FROM train
 GROUP BY 1;
 
 -- Result summery:
--- majority cuustomers has 0 lifespan days.
+-- only 3 cuustomers has 0 lifespan days.
 
--- INSIGHT : 
-/* 1. Monthly Activity :
-Customer activity was highest in 2017, especially around mid-year and year-end. 
-But many months still have very low or no activity, so engagement is not consistent.
-   
-   2. Retention Insight :
-Around 52% of customers are retained while 48% are lost. 
-Even among retained users, most only make 2–3 purchases, so repeat engagement is still weak.
-
-3. Lifespan Insight :
-Most customers have a lifespan of 0 days, which means they don’t come back after 
-their first purchase—leading to high churn.
-   
-   -- RECOMMENDATION :
-   Improve retention with regular campaigns, loyalty programs, and follow-ups to drive repeat purchases. */
    
 
 
@@ -375,41 +367,73 @@ GROUP BY 1,2
 ORDER BY total_spent DESC)as customer_groups
 GROUP BY 1;
 
+/* Result:
+VIP Customers	114
+Loyal Customers	72
+Occasional Buyers	607 */
+
+
+
 
 /*
-
 =================================
 FINAL BUSINESS INSIGHTS
 =================================
 
-1. Technology generated the highest revenue (~₹0.84M), making it the strongest-performing category.
+1. Total revenue across the dataset is $2,272,449.86, with an average order 
+   value of $460.85.
 
-2. Customer retention rate was approximately 52%, indicating a reasonably loyal customer base.
+2. Sales are strongly seasonal — revenue peaks in September–December (Q4) 
+   and dips in January–February, pointing to festive/holiday-driven demand.
 
-3. Nearly 48% of customers made only one purchase, highlighting an opportunity for retention campaigns.
+3. Technology is the top-performing category by revenue contribution, ahead 
+   of the other categories.
 
-4. Copiers, Phones, and Accessories were among the most profitable products.
+4. The top 5 products by revenue are the Canon imageCLASS 2200 Advanced 
+   Copier, Fellowes PB500 Electric Punch Plastic Comb Binding Machine, 
+   Cisco TelePresence System EX90, HON 5400 Series Task Chairs, and the 
+   GBC DocuBind TL300 Electric Binding System.
 
-5. Furniture generated strong revenue but comparatively lower profit margins.
+5. Sean Miller is the top customer by spend (15 orders, $25,043.05 in sales).
 
-6. Sales performance peaked in 2017, showing significant business growth.
+6. Customer-level retention is very high — 99.24% of customers placed more 
+   than one order, with only 0.76% being true one-time buyers. Customer 
+   lifespans are correspondingly long, with only 3 customers showing a 
+   0-day lifespan.
 
-7. Customer segmentation identified VIP, Loyal, and Occasional Buyers, enabling targeted marketing strategies.
+7. Monthly active customers peaked in 2017, and activity is consistently 
+   higher in year-end months across years.
+
+8. Segmenting all 793 customers by order count and spend shows the base is 
+   top-heavy toward low engagement: 607 are Occasional Buyers (76.5%), 
+   72 are Loyal Customers (9.1%), and only 114 qualify as VIP Customers 
+   (14.4%, ≥6 orders and ≥$5,000 spent).
 
 =================================
 RECOMMENDATIONS
 =================================
 
-1. Implement loyalty and retention programs for one-time customers.
+1. Focus growth efforts on converting Occasional Buyers (76.5% of the base) 
+   into Loyal/VIP tiers — this segment is the largest lever for revenue 
+   growth since near-total retention means the issue is order frequency 
+   and spend, not customer loss.
 
-2. Focus marketing efforts on VIP and Loyal Customers.
+2. Protect and reward the 186 Loyal + VIP customers (11.4% of the base) 
+   with a loyalty program, since they likely drive a disproportionate 
+   share of revenue.
 
-3. Optimize pricing and costs in low-margin categories such as Furniture.
+3. Increase marketing spend ahead of Q4 to capture the existing seasonal 
+   peak, and run targeted promotions in January–February to offset the 
+   seasonal dip.
 
-4. Increase promotion of high-profit products.
+4. Double down on the Technology category and the top 5 revenue products 
+   through bundling, cross-selling, and inventory prioritization.
 
-5. Use customer segmentation for personalized marketing campaigns.
+5. Use the customer segmentation to personalize outreach — e.g., re-engagement 
+   campaigns for Occasional Buyers, and account-management-style attention 
+   for top spenders like Sean Miller.
 
-6. Plan targeted promotions during lower-performing sales periods.
-
+6. Since profit/margin data wasn't part of this analysis, a follow-up study 
+   incorporating a profit column (if available) would sharpen recommendation 
+   #4 by confirming whether top-revenue products are also top-margin.
 */
