@@ -28,7 +28,7 @@ The Power BI solution contains two executive dashboards built from multiple SQL 
 
 * Total Revenue: $2.27M
 * Total Profit: $282.9K
-* Customer Retention Rate: 98.49%
+* Customer Retention Rate: 99.24%
 
 **Visualizations**
 
